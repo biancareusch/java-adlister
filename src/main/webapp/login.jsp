@@ -4,23 +4,31 @@
 <html>
 <head>
     <title>login page</title>
+    <%@include file="partials/header.jsp" %>
 </head>
 <body>
-<h1>Login</h1>
+<%@ include file="partials/navbar.jsp" %>
 
-<form name="login" action="login.jsp" method="post">
-    <label for="username">username</label><br>
-    <input type="text" id="username" name="usernameVal"><br>
-    <label for="password">password</label><br>
-    <input type="password" id="password" name="passwordVal"><br>
-    <input type="submit" Value="Submit"><br>
-</form>
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col">
+            <h1>Login</h1>
+            <form name="login" action="login.jsp" method="post">
+                <label for="username">username</label><br>
+                <input type="text" id="username" name="usernameVal"><br>
+                <label for="password">password</label><br>
+                <input type="password" id="password" name="passwordVal"><br>
+                <input type="submit" Value="Submit"><br>
+            </form>
+        </div>
+    </div>
+</div>
 <c:choose>
     <c:when test="${param.usernameVal == 'admin' && param.passwordVal == 'password'}">
         <% response.sendRedirect("/profile.jsp");%>
     </c:when>
 </c:choose>
 
+<%@include file="partials/boostrap.jsp" %>
 </body>
 </html>

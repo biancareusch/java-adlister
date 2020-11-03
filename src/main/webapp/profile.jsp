@@ -3,8 +3,13 @@
 <html>
 <head>
     <title>profile</title>
+    <%@include file="partials/header.jsp"%>
 </head>
 <body>
+<%@include file="partials/navbar.jsp"%>
 <h1>Profile</h1>
+<p>Welcome...</p>
+
+<%@include file="partials/boostrap.jsp"%>
 </body>
 </html>
