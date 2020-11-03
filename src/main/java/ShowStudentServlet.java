@@ -13,23 +13,15 @@ public class ShowStudentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-
         count++;
         out.println("<h2>Page counter: " + count + "</h2>");
 
-        String reset = request.getParameter("reset");
-
+        request.getParameter("reset");
         if (request.getParameterMap().containsKey("reset")) {
             out.println("<h1>You've reset the Counter </h1>");
             count = 0;
         }
     }
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws  IOException {
-//        response.setContentType("text/html");
-//        PrintWriter out = response.getWriter();
-//
-//
-//       }
 
 
 }
