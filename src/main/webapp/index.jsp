@@ -2,11 +2,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Index Page</title>
-    <%@include file="partials/header.jsp"%>
+    <jsp:include page="partials/header.jsp">
+        <jsp:param name="title" value="Adlister"/>
+    </jsp:include>
 </head>
 <body>
 <%@include file="partials/navbar.jsp"%>
+<h1>Welcome !</h1>
 <%--    <c:if test="true">--%>
 <%--        <h1>Variable names should be very descriptive</h1>--%>
 <%--    </c:if>--%>

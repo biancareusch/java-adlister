@@ -3,8 +3,9 @@
 
 <html>
 <head>
-    <title>login page</title>
-    <%@include file="partials/header.jsp" %>
+    <jsp:include page="partials/header.jsp">
+    <jsp:param name="title" value="Login Page"/>
+    </jsp:include>
 </head>
 <body>
 <%@ include file="partials/navbar.jsp" %>
