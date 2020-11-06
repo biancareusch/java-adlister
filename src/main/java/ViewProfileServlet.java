@@ -12,8 +12,9 @@ public class ViewProfileServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         if (session.getAttribute("user") == null) {
-            System.out.println("reached user is null");
+            System.out.println("user is null");
             response.sendRedirect("/login");
+            return;
         }
         Object username = session.getAttribute("user");
         request.setAttribute("name", username);

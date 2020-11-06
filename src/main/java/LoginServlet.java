@@ -12,11 +12,9 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         if (session.getAttribute("user") != null){
-            System.out.println("user typed in name");
             response.sendRedirect("/profile");
             return;
         }
-
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
@@ -27,10 +25,8 @@ public class LoginServlet extends HttpServlet {
 
         if (isAdmin) {
             request.getSession().setAttribute("user", username);
-            System.out.println("LoginServlet isAdmin");
             response.sendRedirect("/profile");
         }else {
-            System.out.println("LoginServlet isAdmin false");
             response.sendRedirect("/login");
         }
     }
