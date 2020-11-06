@@ -11,7 +11,8 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        if (session.getAttribute("isUser") == "true"){
+        if (session.getAttribute("user") != null){
+            System.out.println("user typed in name");
             response.sendRedirect("/profile");
             return;
         }
@@ -25,10 +26,11 @@ public class LoginServlet extends HttpServlet {
         boolean isAdmin = username.equals("admin") && password.equals("password");
 
         if (isAdmin) {
-            request.getSession().setAttribute("isUser", true);
+            request.getSession().setAttribute("user", username);
+            System.out.println("LoginServlet isAdmin");
             response.sendRedirect("/profile");
         }else {
-            request.getSession().setAttribute("isUser", false);
+            System.out.println("LoginServlet isAdmin false");
             response.sendRedirect("/login");
         }
     }

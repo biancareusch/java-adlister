@@ -11,15 +11,17 @@ public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        if (!((boolean) session.getAttribute("isUser")) || session.getAttribute("isUser") == null) {
+        if (session.getAttribute("user") == null) {
+            System.out.println("reached user is null");
             response.sendRedirect("/login");
-            return;
         }
-
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        Object username = session.getAttribute("user");
+        request.setAttribute("name", username);
+        request.getRequestDispatcher("WEB-INF/profile.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        }
     }
-}
+
