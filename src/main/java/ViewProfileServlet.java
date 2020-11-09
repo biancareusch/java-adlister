@@ -15,14 +15,15 @@ public class ViewProfileServlet extends HttpServlet {
             System.out.println("user is null");
             response.sendRedirect("/login");
             return;
+        } else {
+            request.getRequestDispatcher("WEB-INF/profile.jsp").forward(request, response);
         }
         Object username = session.getAttribute("user");
         request.setAttribute("name", username);
-        request.getRequestDispatcher("WEB-INF/profile.jsp").forward(request, response);
+//        request.getRequestDispatcher("WEB-INF/profile.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        }
     }
+}
 

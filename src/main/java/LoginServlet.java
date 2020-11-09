@@ -11,11 +11,11 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        if (session.getAttribute("user") != null){
+        if (session.getAttribute("user") != null) {
             response.sendRedirect("/profile");
-            return;
+        } else {
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
         if (isAdmin) {
             request.getSession().setAttribute("user", username);
             response.sendRedirect("/profile");
-        }else {
+        } else {
             response.sendRedirect("/login");
         }
     }
